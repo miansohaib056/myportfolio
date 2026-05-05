@@ -277,4 +277,42 @@
     });
   }
 
+  /* ---------- Hero 3D mouse parallax ---------- */
+  const reducedMotion3D = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const hero = document.getElementById('home');
+  const heroInner = hero?.querySelector('.hero-inner');
+  const shapes = hero?.querySelectorAll('.cube, .orb, .ring');
+  if (hero && shapes && heroInner && !reducedMotion3D && isFinePointer) {
+    let raf3d = null;
+    hero.addEventListener('mousemove', (e) => {
+      if (raf3d) return;
+      raf3d = requestAnimationFrame(() => {
+        const r = hero.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width - 0.5) * 2;  // -1..1
+        const y = ((e.clientY - r.top) / r.height - 0.5) * 2;
+
+        // Subtle 3D tilt on the hero text block
+        heroInner.style.setProperty('--hero-ry', (x * 4) + 'deg');
+        heroInner.style.setProperty('--hero-rx', (-y * 3) + 'deg');
+
+        // Layered parallax — each shape moves a different distance
+        shapes.forEach((s, i) => {
+          const depth = (i + 1) * 6;
+          s.style.setProperty('--mx', (x * depth) + 'px');
+          s.style.setProperty('--my', (y * depth) + 'px');
+        });
+        raf3d = null;
+      });
+    }, { passive: true });
+    hero.addEventListener('mouseleave', () => {
+      heroInner.style.setProperty('--hero-ry', '0deg');
+      heroInner.style.setProperty('--hero-rx', '0deg');
+      shapes.forEach(s => {
+        s.style.setProperty('--mx', '0px');
+        s.style.setProperty('--my', '0px');
+      });
+    });
+  }
+
 })();
