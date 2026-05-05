@@ -277,4 +277,33 @@
     });
   }
 
+  /* ---------- 3D tilt on skill cards ---------- */
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isPointerFine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!reducedMotion && isPointerFine) {
+    document.querySelectorAll('.skill-card').forEach(card => {
+      let raf = null;
+      const onMove = (e) => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          const r = card.getBoundingClientRect();
+          const x = e.clientX - r.left;
+          const y = e.clientY - r.top;
+          const ry = ((x / r.width) - 0.5) * 18;
+          const rx = (0.5 - (y / r.height)) * 14;
+          card.style.setProperty('--rx', rx + 'deg');
+          card.style.setProperty('--ry', ry + 'deg');
+          card.style.setProperty('--mx', x + 'px');
+          card.style.setProperty('--my', y + 'px');
+          raf = null;
+        });
+      };
+      card.addEventListener('mousemove', onMove, { passive: true });
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
 })();

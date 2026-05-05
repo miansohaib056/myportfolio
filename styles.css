@@ -793,11 +793,13 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
+  perspective: 1000px;
 }
 @media (max-width: 640px) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
 }
 .skill-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -806,14 +808,29 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
   border-radius: var(--radius-sm);
   background: rgba(255,255,255,0.025);
   border: 1px solid var(--line);
-  transition: all 0.4s var(--ease);
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
   cursor: pointer;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  will-change: transform;
+}
+.skill-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(167,139,250,0.22), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
+  z-index: 1;
 }
 .skill-card:hover {
   background: rgba(255,255,255,0.05);
   border-color: var(--line-strong);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(167,139,250,0.15);
 }
+.skill-card:hover::before { opacity: 1; }
 .skill-icon {
   width: 40px;
   height: 40px;
@@ -823,11 +840,23 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
   place-items: center;
   color: var(--accent-2);
   border: 1px solid rgba(34, 211, 238, 0.2);
+  transform: translateZ(40px);
+  transition: transform 0.5s var(--ease);
+  position: relative;
+  z-index: 2;
 }
 .skill-icon svg { width: 20px; height: 20px; }
 .skill-card span {
   font-size: 14px;
   font-weight: 500;
+  transform: translateZ(20px);
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card { transform: none; }
+  .skill-icon, .skill-card span { transform: none; }
 }
 
 /* =========================================================
