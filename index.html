@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="description" content="Sohaib — Senior WordPress Developer crafting fast, scalable, and beautifully designed websites." />
+  <title>Sohaib — WordPress Developer</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <span class="loader-text">S</span>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Aurora Background -->
+  <div class="aurora">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" data-cursor="link">
+        <span class="logo-mark">S</span>
+        <span class="logo-text">ohaib<span class="logo-dot">.</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active" data-cursor="link"><span>01</span>Home</a>
+        <a href="#about" class="nav-link" data-cursor="link"><span>02</span>About</a>
+        <a href="#education" class="nav-link" data-cursor="link"><span>03</span>Education</a>
+        <a href="#experience" class="nav-link" data-cursor="link"><span>04</span>Experience</a>
+        <a href="#projects" class="nav-link" data-cursor="link"><span>05</span>Projects</a>
+        <a href="#contact" class="nav-link" data-cursor="link"><span>06</span>Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-ghost nav-cta" data-cursor="link">
+        Let's Talk
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-badge" data-reveal>
+          <span class="pulse"></span>
+          Available for new projects · 2026
+        </div>
+
+        <h1 class="hero-title" data-reveal data-delay="100">
+          <span class="hero-line">I build <span class="grad-text">premium</span></span>
+          <span class="hero-line">WordPress experiences</span>
+          <span class="hero-line typing-line">
+            <span class="typing-prefix">that</span>
+            <span class="typing" id="typing"></span>
+            <span class="caret">|</span>
+          </span>
+        </h1>
+
+        <p class="hero-sub" data-reveal data-delay="200">
+          I'm <strong>Sohaib</strong> — a WordPress developer crafting fast, accessible, and conversion-driven websites using Elementor, custom builds, and lean PHP.
+        </p>
+
+        <div class="hero-cta" data-reveal data-delay="300">
+          <a href="#projects" class="btn btn-primary magnetic" data-cursor="link">
+            <span>View Projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost magnetic" data-cursor="link">
+            <span>Contact Me</span>
+          </a>
+        </div>
+
+        <div class="hero-stats" data-reveal data-delay="400">
+          <div class="stat">
+            <div class="stat-num"><span data-count="3">0</span>+</div>
+            <div class="stat-label">Years<br/>Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><span data-count="60">0</span>+</div>
+            <div class="stat-label">Projects<br/>Delivered</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><span data-count="40">0</span>+</div>
+            <div class="stat-label">Happy<br/>Clients</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><span data-count="100">0</span>%</div>
+            <div class="stat-label">Client<br/>Satisfaction</div>
+          </div>
+        </div>
+
+        <a href="#about" class="scroll-indicator" data-cursor="link">
+          <span>Scroll</span>
+          <div class="scroll-line"><span></span></div>
+        </a>
+      </div>
+
+      <!-- Marquee tech stack -->
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>WordPress</span><span>•</span>
+          <span>Elementor</span><span>•</span>
+          <span>WooCommerce</span><span>•</span>
+          <span>PHP</span><span>•</span>
+          <span>JavaScript</span><span>•</span>
+          <span>Custom Themes</span><span>•</span>
+          <span>Yoast SEO</span><span>•</span>
+          <span>WP Rocket</span><span>•</span>
+          <span>Figma</span><span>•</span>
+          <span>SEO</span><span>•</span>
+          <span>WordPress</span><span>•</span>
+          <span>Elementor</span><span>•</span>
+          <span>WooCommerce</span><span>•</span>
+          <span>PHP</span><span>•</span>
+          <span>JavaScript</span><span>•</span>
+          <span>Custom Themes</span><span>•</span>
+          <span>Yoast SEO</span><span>•</span>
+          <span>WP Rocket</span><span>•</span>
+          <span>Figma</span><span>•</span>
+          <span>SEO</span><span>•</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span>02</span>About Me</span>
+          <h2 class="section-title">A developer who cares about the <span class="grad-text">details</span>.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-photo" data-reveal>
+            <div class="photo-frame">
+              <div class="photo-inner">
+                <!-- Replace with: <img src="profile.jpg" alt="Sohaib"> when ready -->
+                <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <radialGradient id="grad-a" cx="20%" cy="20%" r="60%">
+                      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.55"/>
+                      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+                    </radialGradient>
+                    <radialGradient id="grad-b" cx="80%" cy="85%" r="60%">
+                      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.55"/>
+                      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="grad-text" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#a78bfa"/>
+                      <stop offset="100%" stop-color="#22d3ee"/>
+                    </linearGradient>
+                    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.06)"/>
+                    </pattern>
+                  </defs>
+                  <rect width="400" height="500" fill="#0d0d15"/>
+                  <rect width="400" height="500" fill="url(#dots)"/>
+                  <circle cx="80" cy="100" r="180" fill="url(#grad-a)"/>
+                  <circle cx="320" cy="425" r="180" fill="url(#grad-b)"/>
+
+                  <!-- Code bracket corners -->
+                  <text x="32" y="56" font-family="JetBrains Mono, monospace" font-size="18" fill="rgba(255,255,255,0.35)">&lt;/&gt;</text>
+                  <text x="368" y="476" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="14" fill="rgba(255,255,255,0.35)">// hi.</text>
+
+                  <!-- Big monogram -->
+                  <text x="200" y="285" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="220" fill="url(#grad-text)" letter-spacing="-8">S</text>
+
+                  <!-- Name tag -->
+                  <text x="200" y="350" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="600" font-size="22" fill="rgba(255,255,255,0.9)" letter-spacing="2">SOHAIB</text>
+                  <text x="200" y="378" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="3">WORDPRESS · DEV</text>
+                </svg>
+              </div>
+              <div class="photo-tag photo-tag-1">3+ yrs WP</div>
+              <div class="photo-tag photo-tag-2">Transcure</div>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <p class="about-lead" data-reveal data-delay="100">
+              I'm a WordPress developer based in Pakistan, currently shaping digital products at <strong>Transcure</strong>. For three years I've turned Figma files into pixel-precise, butter-smooth WordPress sites — from custom themes and Elementor builds to WooCommerce stores and headless setups.
+            </p>
+            <p class="about-text" data-reveal data-delay="200">
+              I obsess over Core Web Vitals, clean PHP, and design systems that scale. Whether it's a marketing site, a SaaS landing page, or a 10k-product store — my goal is the same: ship something that loads fast, looks sharp, and converts.
+            </p>
+
+            <div class="skills" data-reveal data-delay="300">
+              <h3 class="skills-title">Stack & Tools</h3>
+              <div class="skills-grid">
+                <div class="skill-card" data-cursor="link">
+                  <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg>
+                  </div>
+                  <span>WordPress</span>
+                </div>
+                <div class="skill-card" data-cursor="link">
+                  <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                  </div>
+                  <span>Elementor</span>
+                </div>
+                <div class="skill-card" data-cursor="link">
+                  <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
+                  </div>
+                  <span>PHP</span>
+                </div>
+                <div class="skill-card" data-cursor="link">
+                  <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  </div>
+                  <span>HTML & CSS</span>
+                </div>
+                <div class="skill-card" data-cursor="link">
+                  <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3zM7 8v8M11 8v8a2 2 0 0 0 4 0M16 13a2 2 0 0 0 2-2v-3"/></svg>
+                  </div>
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill-card" data-cursor="link">
+                  <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-6 9 6v12H3z"/><path d="M9 21V12h6v9"/></svg>
+                  </div>
+                  <span>WooCommerce</span>
+                </div>
+                <div class="skill-card" data-cursor="link">
+                  <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20"/></svg>
+                  </div>
+                  <span>ACF & Custom</span>
+                </div>
+                <div class="skill-card" data-cursor="link">
+                  <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                  </div>
+                  <span>SEO & Speed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span>03</span>Education</span>
+          <h2 class="section-title">Academic <span class="grad-text">background</span>.</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-year">2017 — 2020</span>
+                <span class="timeline-tag">Diploma</span>
+              </div>
+              <h3>C.I.T · Computer Information Technology</h3>
+              <p class="timeline-place">Pak Polytechnic Institute · Pakistan</p>
+              <p class="timeline-desc">Three-year diploma covering programming fundamentals, web technologies, databases, and IT systems — the foundation that led me into WordPress development.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span>04</span>Experience</span>
+          <h2 class="section-title">Where I've <span class="grad-text">shipped</span>.</h2>
+        </div>
+
+        <div class="timeline timeline-alt">
+          <div class="timeline-item" data-reveal>
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-year">2023 — Present</span>
+                <span class="timeline-tag tag-active">Current</span>
+              </div>
+              <h3>WordPress Developer · Transcure</h3>
+              <p class="timeline-place">Healthcare Tech · Remote</p>
+              <ul class="timeline-list">
+                <li>Delivered 20+ conversion-focused WordPress websites and landing pages using Elementor with a strong focus on performance and accessibility.</li>
+                <li>Developed reusable Elementor components and scalable layouts, enabling faster content updates and consistent design systems.</li>
+                <li>Enhanced site performance through code optimization, reduced asset load, and improved frontend efficiency.</li>
+                <li>Managed technical SEO foundations including schema, OpenGraph, sitemaps, and Core Web Vitals optimization.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-reveal data-delay="100">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-year">2023 — Present</span>
+                <span class="timeline-tag tag-active">Current</span>
+              </div>
+              <h3>Independent WordPress Consultant</h3>
+              <p class="timeline-place">Fiverr · Direct clients</p>
+              <ul class="timeline-list">
+                <li>Built 30+ WordPress websites across agencies, healthcare, eCommerce, and personal brands.</li>
+                <li>Managed end-to-end delivery with clean handovers, including staging, client onboarding, and post-launch support.</li>
+                <li>Developed WooCommerce stores optimized for performance, scalability, and user experience.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span>05</span>Selected Work</span>
+          <h2 class="section-title">Recent <span class="grad-text">projects</span>.</h2>
+          <p class="section-sub">A handful of builds I'm proud of. More on request.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card" data-reveal data-cursor="link">
+            <div class="project-image" data-bg="1">
+              <img src="images/projects/01-transcure.png" alt="Transcure medical billing homepage" loading="lazy">
+              <a href="https://transcure.net/" target="_blank" rel="noopener" class="project-overlay" aria-label="Visit Transcure website" data-cursor="link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span>01</span>
+                <span>Healthcare · 2025</span>
+              </div>
+              <h3>Transcure — Medical Billing</h3>
+              <p>Built a conversion-driven WordPress marketing site for a top US medical billing and RCM firm.</p>
+              <div class="project-tech">
+                <span>WordPress</span>
+                <span>Elementor</span>
+                <span>Yoast SEO</span>
+                <span>PHP</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://transcure.net/" target="_blank" rel="noopener" class="project-link" data-cursor="link">View Website
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal data-delay="100" data-cursor="link">
+            <div class="project-image" data-bg="2">
+              <img src="images/projects/02-transdental.png" alt="TransDental dental billing homepage" loading="lazy">
+              <a href="https://transdentalbilling.com/" target="_blank" rel="noopener" class="project-overlay" aria-label="Visit TransDental website" data-cursor="link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span>02</span>
+                <span>Healthcare · 2025</span>
+              </div>
+              <h3>TransDental — Dental Billing</h3>
+              <p>Built a WordPress and Elementor marketing site for a US dental billing and RCM service provider.</p>
+              <div class="project-tech">
+                <span>WordPress</span>
+                <span>Elementor</span>
+                <span>Yoast SEO</span>
+                <span>PHP</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://transdentalbilling.com/" target="_blank" rel="noopener" class="project-link" data-cursor="link">View Website
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal data-delay="200" data-cursor="link">
+            <div class="project-image" data-bg="3">
+              <div class="project-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span>03</span>
+                <span>SaaS · 2024</span>
+              </div>
+              <h3>Northwind SaaS Landing</h3>
+              <p>High-converting B2B landing with Elementor Pro and ACF — A/B tested, 3.4× signup lift.</p>
+              <div class="project-tech">
+                <span>Elementor</span>
+                <span>WordPress</span>
+                <span>GSAP</span>
+                <span>HubSpot</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="project-link" data-cursor="link">View Website
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal data-cursor="link">
+            <div class="project-image" data-bg="4">
+              <div class="project-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span>04</span>
+                <span>Agency · 2024</span>
+              </div>
+              <h3>Atlas Agency Portfolio</h3>
+              <p>Editorial-style agency site with custom Gutenberg blocks and smooth GSAP transitions.</p>
+              <div class="project-tech">
+                <span>Gutenberg</span>
+                <span>React</span>
+                <span>GSAP</span>
+                <span>PHP</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="project-link" data-cursor="link">View Website
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal data-delay="100" data-cursor="link">
+            <div class="project-image" data-bg="5">
+              <div class="project-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span>05</span>
+                <span>Membership · 2023</span>
+              </div>
+              <h3>Mentor Pro Course Platform</h3>
+              <p>Membership site with LearnDash, Stripe subscriptions, and a custom student dashboard.</p>
+              <div class="project-tech">
+                <span>LearnDash</span>
+                <span>Stripe</span>
+                <span>PHP</span>
+                <span>JS</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="project-link" data-cursor="link">View Website
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal data-delay="200" data-cursor="link">
+            <div class="project-image" data-bg="6">
+              <div class="project-overlay">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span>06</span>
+                <span>Personal · 2023</span>
+              </div>
+              <h3>Indie Blog Theme</h3>
+              <p>Open-source minimal blog theme — 100 Lighthouse, RSS, dark mode, MDX-style blocks.</p>
+              <div class="project-tech">
+                <span>WordPress</span>
+                <span>Block API</span>
+                <span>SCSS</span>
+              </div>
+              <div class="project-actions">
+                <a href="#" class="project-link" data-cursor="link">View Website
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span>06</span>Testimonials</span>
+          <h2 class="section-title">Kind words from <span class="grad-text">clients</span>.</h2>
+        </div>
+
+        <div class="testimonial-slider" data-reveal>
+          <div class="testimonial-track" id="testimonialTrack">
+            <article class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <p class="testimonial-text">Sohaib delivered our marketing site in two weeks — clean code, blazing fast, and the design team's nitpicky CSS feedback got resolved same-day. Hire him.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="--c:#a78bfa">A</div>
+                <div>
+                  <div class="author-name">Ayesha K.</div>
+                  <div class="author-role">Head of Marketing · SaaS</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <p class="testimonial-text">We migrated a legacy 200-page WordPress site with zero downtime and lifted PageSpeed from 41 to 97. Easily the most senior WP dev we've worked with.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="--c:#22d3ee">M</div>
+                <div>
+                  <div class="author-name">Marcus T.</div>
+                  <div class="author-role">CTO · E-commerce</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <p class="testimonial-text">Everything I sent in Figma came back pixel-perfect, and the Elementor templates he built saved our content team hours every week.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="--c:#f472b6">L</div>
+                <div>
+                  <div class="author-name">Lena O.</div>
+                  <div class="author-role">Design Lead · Agency</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <p class="testimonial-text">Built our entire WooCommerce store with custom B2B pricing logic. Six months in, zero bugs and revenue is up 3x. Genuinely recommend.</p>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="--c:#34d399">R</div>
+                <div>
+                  <div class="author-name">Raj P.</div>
+                  <div class="author-role">Founder · Lighting Co.</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="slider-controls">
+            <button class="slider-btn" id="prevBtn" aria-label="Previous">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="slider-dots" id="sliderDots"></div>
+            <button class="slider-btn" id="nextBtn" aria-label="Next">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-intro" data-reveal>
+            <span class="eyebrow"><span>07</span>Contact</span>
+            <h2 class="section-title">Let's build <span class="grad-text">something good</span>.</h2>
+            <p class="contact-text">Have a WordPress project, a tricky migration, or just want a quick technical opinion? Drop me a note — I reply within a day.</p>
+
+            <div class="contact-info">
+              <a href="mailto:hello@sohaib.dev" class="contact-info-item" data-cursor="link">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+                </div>
+                <div>
+                  <span>Email</span>
+                  <strong>hello@sohaib.dev</strong>
+                </div>
+              </a>
+              <a href="#" class="contact-info-item" data-cursor="link">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <div>
+                  <span>WhatsApp</span>
+                  <strong>+92 ••• ••• ••••</strong>
+                </div>
+              </a>
+              <a href="#" class="contact-info-item" data-cursor="link">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <span>Based in</span>
+                  <strong>Pakistan · Remote-friendly</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm" data-reveal data-delay="100" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+                <span class="form-error" data-error-for="name"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+                <span class="form-error" data-error-for="email"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Project type or quick intro" />
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, timeline, and budget..." required></textarea>
+              <span class="form-error" data-error-for="message"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block magnetic" data-cursor="link">
+              <span>Send Message</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+            <p class="form-success" id="formSuccess">Thanks! Your message has been sent. I'll reply within 24h.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="logo">
+            <span class="logo-mark">S</span>
+            <span class="logo-text">ohaib<span class="logo-dot">.</span></span>
+          </a>
+          <p>WordPress Developer crafting fast, premium digital experiences.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Sitemap</h4>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <h4>Find Me</h4>
+          <div class="social-links">
+            <a href="#" aria-label="GitHub" data-cursor="link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" data-cursor="link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter" data-cursor="link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" aria-label="Dribbble" data-cursor="link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Sohaib. Crafted with care, powered by coffee.</p>
+        <button class="back-top" id="backTop" data-cursor="link">
+          Back to top
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

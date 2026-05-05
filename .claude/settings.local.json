@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(vercel --version)",
+      "Bash(curl -sI http://localhost:5173/)"
+    ]
+  }
+}
