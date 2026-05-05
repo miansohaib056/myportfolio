@@ -135,22 +135,20 @@
       if (e.isIntersecting) {
         const el = e.target;
         const target = parseInt(el.dataset.count, 10);
-        let n = 0;
-        const step = Math.max(1, Math.ceil(target / 40));
-        const inc = () => {
-          n += step;
-          if (n >= target) {
-            el.textContent = target;
-          } else {
-            el.textContent = n;
-            requestAnimationFrame(inc);
-          }
+        const duration = 2000;
+        const startTime = performance.now();
+        const easeOutExpo = (t) => t >= 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        el.textContent = '0';
+        const tick = (now) => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          el.textContent = Math.round(easeOutExpo(progress) * target);
+          if (progress < 1) requestAnimationFrame(tick);
         };
-        inc();
+        requestAnimationFrame(tick);
         counterIO.unobserve(el);
       }
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 0.4 });
   counters.forEach(c => counterIO.observe(c));
 
   /* ---------- Magnetic buttons ---------- */
