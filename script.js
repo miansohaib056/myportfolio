@@ -212,48 +212,112 @@
     });
   }
 
-  /* ---------- Contact form validation ---------- */
+  /* ---------- Contact form validation + submission (Web3Forms) ---------- */
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
+  const errorBanner = document.getElementById('formError');
   if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let ok = true;
+    const fields = ['firstName', 'lastName', 'email', 'phone', 'country', 'budget', 'userSubject', 'message']
+      .map(id => form.querySelector('#' + id))
+      .filter(Boolean);
 
-      const name = form.querySelector('#name');
-      const email = form.querySelector('#email');
-      const message = form.querySelector('#message');
-
-      [name, email, message].forEach(field => {
-        field.parentElement.classList.remove('error');
-        const errEl = form.querySelector(`[data-error-for="${field.id}"]`);
+    const clearErrors = () => {
+      fields.forEach(f => {
+        f.parentElement.classList.remove('error');
+        const errEl = form.querySelector(`[data-error-for="${f.id}"]`);
         if (errEl) errEl.textContent = '';
       });
+      if (errorBanner) errorBanner.style.display = 'none';
+    };
 
-      if (!name.value.trim() || name.value.trim().length < 2) {
-        markError(name, 'Please enter your name.');
-        ok = false;
-      }
+    const validate = () => {
+      clearErrors();
+      let ok = true;
+      const get = id => form.querySelector('#' + id);
+
+      const requireText = (id, label, min = 1) => {
+        const f = get(id);
+        if (!f) return;
+        if (!f.value.trim() || f.value.trim().length < min) {
+          markError(f, `Please enter your ${label}.`);
+          ok = false;
+        }
+      };
+
+      requireText('firstName', 'first name');
+      requireText('lastName', 'last name');
+
+      const email = get('email');
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRe.test(email.value.trim())) {
         markError(email, 'Please enter a valid email.');
         ok = false;
       }
+
+      const phone = get('phone');
+      if (!phone.value.trim() || phone.value.trim().length < 6) {
+        markError(phone, 'Please enter a valid phone number.');
+        ok = false;
+      }
+
+      requireText('country', 'country');
+
+      const budget = get('budget');
+      if (!budget.value) {
+        markError(budget, 'Please pick a budget range.');
+        ok = false;
+      }
+
+      requireText('userSubject', 'subject');
+
+      const message = get('message');
       if (!message.value.trim() || message.value.trim().length < 10) {
         markError(message, 'Message should be at least 10 characters.');
         ok = false;
       }
 
-      if (ok) {
-        // Frontend-only — replace with real backend later
-        success.classList.add('show');
-        form.reset();
-        setTimeout(() => success.classList.remove('show'), 5000);
+      return ok;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const submitLabel = submitBtn.querySelector('span');
+      const originalLabel = submitLabel.textContent;
+      submitBtn.disabled = true;
+      submitLabel.textContent = 'Sending…';
+
+      try {
+        const formData = new FormData(form);
+        // For Web3Forms auto-reply: route reply-to to the sender's email
+        formData.append('replyto', formData.get('email'));
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok && data.success) {
+          success.classList.add('show');
+          form.reset();
+          setTimeout(() => success.classList.remove('show'), 6000);
+        } else {
+          if (errorBanner) errorBanner.style.display = 'block';
+        }
+      } catch (err) {
+        if (errorBanner) errorBanner.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitLabel.textContent = originalLabel;
       }
     });
 
-    form.querySelectorAll('input, textarea').forEach(f => {
-      f.addEventListener('input', () => {
+    form.querySelectorAll('input, textarea, select').forEach(f => {
+      const evt = f.tagName === 'SELECT' ? 'change' : 'input';
+      f.addEventListener(evt, () => {
         f.parentElement.classList.remove('error');
         const errEl = form.querySelector(`[data-error-for="${f.id}"]`);
         if (errEl) errEl.textContent = '';
