@@ -1134,7 +1134,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
   box-shadow: 0 30px 60px rgba(0,0,0,0.4);
 }
 .project-image {
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9;
   position: relative;
   overflow: hidden;
   background: var(--bg-2);
@@ -1664,4 +1664,3 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
   }
   [data-reveal] { opacity: 1; transform: none; }
 }
-
