@@ -447,16 +447,22 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
    Sections
    ========================================================= */
 .section {
-  padding: 90px 0;
+  padding: 64px 0;
   position: relative;
 }
-@media (max-width: 768px) {
-  .section { padding: 70px 0; }
+@media (max-width: 900px) {
+  .section { padding: 48px 0; }
+}
+@media (max-width: 640px) {
+  .section { padding: 36px 0; }
 }
 
 .section-head {
-  margin-bottom: 80px;
+  margin-bottom: 48px;
   max-width: 720px;
+}
+@media (max-width: 640px) {
+  .section-head { margin-bottom: 32px; }
 }
 .eyebrow {
   display: inline-flex;
@@ -507,6 +513,12 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
   position: relative;
   padding: 120px 0 0;
   perspective: 1400px;
+}
+@media (max-width: 1100px) {
+  .hero { min-height: auto; padding: 96px 0 24px; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 80px 0 16px; }
 }
 .hero-inner {
   position: relative;
