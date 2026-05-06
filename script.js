@@ -331,6 +331,37 @@
     if (errEl) errEl.textContent = msg;
   }
 
+  /* ---------- View more projects ---------- */
+  const viewMoreBtn = document.getElementById('viewMoreBtn');
+  const viewMoreCount = document.getElementById('viewMoreCount');
+  if (viewMoreBtn) {
+    const extras = Array.from(document.querySelectorAll('.project-card-extra'));
+    const STEP = 3;
+    let revealed = 0;
+
+    const updateCount = () => {
+      const remaining = extras.length - revealed;
+      if (remaining <= 0) {
+        viewMoreBtn.classList.add('is-done');
+        viewMoreBtn.querySelector('.view-more-label').textContent = 'All projects shown';
+        viewMoreCount.textContent = '✓';
+        // Hide button entirely after a short pause so the user sees the confirmation
+        setTimeout(() => viewMoreBtn.classList.add('is-hidden'), 1200);
+      } else {
+        viewMoreCount.textContent = '+' + remaining;
+      }
+    };
+
+    viewMoreBtn.addEventListener('click', () => {
+      const next = extras.slice(revealed, revealed + STEP);
+      next.forEach(card => card.classList.add('is-visible'));
+      revealed += next.length;
+      updateCount();
+    });
+
+    updateCount();
+  }
+
   /* ---------- Back to top ---------- */
   const backTop = document.getElementById('backTop');
   if (backTop) {

@@ -1120,6 +1120,65 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 24px;
 }
+
+/* Cards beyond #6 are hidden until JS reveals them */
+.project-card-extra { display: none; }
+.project-card-extra.is-visible {
+  display: block;
+  animation: card-fade-in 0.5s var(--ease-out) both;
+}
+@keyframes card-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* View more CTA */
+.projects-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+.view-more-btn {
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.view-more-btn .view-more-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+.view-more-btn svg { transition: transform 0.4s var(--ease); }
+.view-more-btn.is-done svg { transform: rotate(180deg); }
+.view-more-btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  pointer-events: none;
+  box-shadow: 0 0 0 0 rgba(167,139,250,0.55);
+  animation: view-more-pulse 2.2s ease-out infinite;
+}
+.view-more-btn.is-done::after { animation: none; }
+@keyframes view-more-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(167,139,250,0.5); }
+  70%  { box-shadow: 0 0 0 16px rgba(167,139,250,0); }
+  100% { box-shadow: 0 0 0 0 rgba(167,139,250,0); }
+}
+.view-more-btn.is-hidden { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .view-more-btn::after, .project-card-extra.is-visible { animation: none; }
+}
 .project-card {
   position: relative;
   border-radius: var(--radius);
@@ -1134,7 +1193,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
   box-shadow: 0 30px 60px rgba(0,0,0,0.4);
 }
 .project-image {
-  aspect-ratio: 16/9;
+  aspect-ratio: 2/1;
   position: relative;
   overflow: hidden;
   background: var(--bg-2);
@@ -1180,6 +1239,10 @@ button, input, textarea { font-family: inherit; font-size: inherit; color: inher
 .project-card:hover .project-image img { transform: scale(1.04); }
 
 .project-card:hover .project-image::before { opacity: 0.25; }
+
+/* Hide gradient tint + checker pattern on cards that have a real screenshot */
+.project-image:has(img)::before,
+.project-image:has(img)::after { display: none; }
 .project-overlay {
   position: absolute;
   top: 16px;
